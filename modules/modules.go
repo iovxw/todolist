@@ -20,7 +20,7 @@ func Initialize() error {
 		log.Println("Initialize database...")
 
 		// 创建数据库文建夹
-		err = os.Mkdir("db", 0)
+		err = os.Mkdir("db", 0700)
 		if err != nil {
 			return err
 		}
