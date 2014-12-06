@@ -1,0 +1,9 @@
+package base
+
+import (
+	"bytes"
+)
+
+func Navbar(_buffer *bytes.Buffer) {
+	_buffer.WriteString("<div class=\"navbar navbar-inverse\"><div class=\"container\"><div class=\"navbar-header\"><button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-inverse-collapse\"><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span></button><a class=\"navbar-brand\" href=\"#\">TodoList</a></div><div class=\"navbar-collapse collapse navbar-inverse-collapse\"><ul class=\"nav navbar-nav\"><li class=\"active\"><a href=\"#\">首页</a></li><li><a href=\"#\">Link</a></li></ul><ul class=\"nav navbar-nav navbar-right\"><form class=\"navbar-form navbar-left\"><input class=\"form-control col-lg-8\" placeholder=\"Search\" type=\"text\"></form><li><a data-toggle=\"modal\" href=\"#editor\"><i class=\"fa fa-plus\"></i> Add</a></li><li class=\"dropdown\"><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Dropdown <b class=\"caret\"></b></a><ul class=\"dropdown-menu\"><li><a href=\"#\">Action</a></li><li><a href=\"#\">Another action</a></li><li><a href=\"#\">Something else here</a></li><li class=\"divider\"></li><li><a href=\"#\">Separated link</a></li></ul></li></ul></div></div></div>")
+}

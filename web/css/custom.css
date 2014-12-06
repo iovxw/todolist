@@ -1,0 +1,42 @@
+body {
+	background-color: #eaeaea;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.editor {
+	width: 100%;
+	min-height: 80px;
+	resize: none;
+	font-size: 16px;
+	overflow: hidden;
+	line-height: 20px;
+}
+
+.content {
+	font-size: 15px;
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: white;
+	box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.content p {
+	margin-bottom: 0;
+	line-height: 110%;
+}
+
+.content .con {
+	margin-bottom: 10px;
+}
+
+.content .info {
+	font-size: 12px;
+}
+
+.content .info a {
+	color: #999;
+	margin-left: 3px;
+	margin-right: 10px;
+	text-decoration: none;
+}

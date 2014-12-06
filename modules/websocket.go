@@ -1,0 +1,50 @@
+package modules
+
+import (
+	"log"
+)
+
+func WSMain(receiver <-chan *Message, sender chan<- *Message, done <-chan bool, disconnect chan<- int, errorChannel <-chan error) {
+	// 生成id
+	clientID := newID()
+	// 将sender添加到客户端列表
+	wsClientList[clientID] = sender
+	for {
+		select {
+		case msg := <-receiver:
+			log.Println(msg)
+			switch msg.Type {
+			case "new":
+				err := newMessage(msg)
+				if err != nil {
+					// 处理错误
+					switch err {
+					case nilContentERR:
+						sender <- &Message{
+							Type: "error",
+							Data: "发送的信息为空！发送失败",
+						}
+					default:
+						log.Println("[newMessage]ERROR:", err)
+						sender <- &Message{
+							Type: "error",
+							Data: "服务器发生内部错误！发送失败",
+						}
+					}
+				}
+			}
+		//case <-ticker:
+		// This will close the connection after 30 minutes no matter what
+		// To demonstrate use of the disconnect channel
+		// You can use close codes according to RFC 6455
+		//disconnect <- websocket.CloseNormalClosure
+		case <-done:
+			// 从客户端列表中删除
+			delete(wsClientList, clientID)
+			return
+		case err := <-errorChannel:
+			// Uh oh, we received an error. This will happen before a close if the client did not disconnect regularly.
+			log.Println(err)
+		}
+	}
+}
