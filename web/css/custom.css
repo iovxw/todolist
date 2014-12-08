@@ -6,17 +6,14 @@ body {
 
 .editor {
 	width: 100%;
-	min-height: 80px;
-	resize: none;
+	min-height: 160px;
 	font-size: 16px;
-	overflow: hidden;
 	line-height: 20px;
 }
 
 .content {
 	font-size: 15px;
 	margin-bottom: 20px;
-	padding: 15px;
 	background-color: white;
 	box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
 }
@@ -34,8 +31,143 @@ body {
 	font-size: 12px;
 }
 
-.content .info a {
-	color: #999;
+.modal-header {
+	box-shadow: 0 1px 0 #EEE;
+}
+
+.modal-body {
+	padding-bottom: 0;
+}
+
+.panel-footer {
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.colors {
+	padding: 0 15px 0 15px;
+}
+
+.color-box {
+	width: 20px;
+	height: 20px;
+	float: left;
+	margin: 10px 10px 0 0;
+}
+
+.color-box:hover {
+	border: 3px solid rgba(0, 0, 0, 0.3);
+}
+
+.color-box.default {
+	background-color: #5B5B5B;
+}
+
+.color-box.red {
+	background-color: #e51c32;
+}
+
+.color-box.pink {
+	background-color: #e91e63;
+}
+
+.color-box.orange {
+	background-color: #ff9800;
+}
+
+.color-box.yellow {
+	background-color: #ffeb3b;
+}
+
+.color-box.lime {
+	background-color: #cddc39;
+}
+
+.color-box.green {
+	background-color: #259b24;
+}
+
+.color-box.teal {
+	background-color: #009688;
+}
+
+.color-box.blue {
+	background-color: #5677fc;
+}
+
+.color-box.indigo {
+	background-color: #3f51b5;
+}
+
+.color-box.deep-purple {
+	background-color: #673ab7;
+}
+
+.color-box.purple {
+	background-color: #9c27b0;
+}
+
+.color-box.fa-check {
+	color: white;
+	font-size: 120%;
+	padding: 4px;
+	border: 3px solid rgba(0, 0, 0, 0.3);
+}
+
+.panel-footer {
+	color: white;
+}
+
+.panel-footer.default {
+	background-color: #5B5B5B;
+}
+
+.panel-footer.red {
+	background-color: #e51c32;
+}
+
+.panel-footer.pink {
+	background-color: #e91e63;
+}
+
+.panel-footer.orange {
+	background-color: #ff9800;
+}
+
+.panel-footer.yellow {
+	background-color: #ffeb3b;
+}
+
+.panel-footer.lime {
+	background-color: #cddc39;
+}
+
+.panel-footer.green {
+	background-color: #259b24;
+}
+
+.panel-footer.teal {
+	background-color: #009688;
+}
+
+.panel-footer.blue {
+	background-color: #5677fc;
+}
+
+.panel-footer.indigo {
+	background-color: #3f51b5;
+}
+
+.panel-footer.deep-purple {
+	background-color: #673ab7;
+}
+
+.panel-footer.purple {
+	background-color: #9c27b0;
+}
+
+.panel-footer a {
+	color: white;
 	margin-left: 3px;
 	margin-right: 10px;
 	text-decoration: none;

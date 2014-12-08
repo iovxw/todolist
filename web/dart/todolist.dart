@@ -14,11 +14,14 @@ void main() {
     editor.querySelectorAll("br").forEach((Element e) {
       e.text = "<{#}>";
     });
+    // 获取选中的颜色的id
+    var color = querySelector(".colors .fa.fa-check").id;
     var message = JSON.encode({
       'Type': 'new',
       'Data': {
         'channel': 'piazza',
         'content': editor.text,
+        'color': color,
       }
     });
     print(editor.text);
@@ -87,12 +90,51 @@ void initWebSocket([int retrySeconds = 2]) {
     var msg = JSON.decode(e.data.toString());
     switch (msg["Type"]) {
     case "newMsg":
+      var color;
+      switch (msg["Data"]["Color"]) {
+      case 0:
+        color = "default";
+        break;
+      case 1:
+        color = "red";
+        break;
+      case 2:
+        color = "pink";
+        break;
+      case 3:
+        color = "orange";
+        break;
+      case 4:
+        color = "yellow";
+        break;
+      case 5:
+        color = "lime";
+        break;
+      case 6:
+        color = "green";
+        break;
+      case 7:
+        color = "teal";
+        break;
+      case 8:
+        color = "blue";
+        break;
+      case 9:
+        color = "indigo";
+        break;
+      case 10:
+        color = "deep-purple";
+        break;
+      case 11:
+        color = "purple";
+        break;
+      }
       var content = new Element.html(
         '''
           <div id="${msg["Data"]["ID"]}" class="col-xs-12 col-sm-6 col-md-4">
 		      	<div class="content">
 			      	<div class="panel-body">${msg["Data"]["Content"]}</div>
-              <div class="panel-footer" style="background-color: ${msg["Data"]["Color"]};">
+              <div class="panel-footer ${color}"">
                 <i class="fa fa-clock-o"></i>
 				        <a>time</a>
               </div>

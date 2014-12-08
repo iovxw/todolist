@@ -60,7 +60,7 @@ func decode(data []byte, to interface{}) error {
 
 type contentInfo struct {
 	ID      string
-	Color   string
+	Color   int
 	Content string
 }
 type channelInfo struct {

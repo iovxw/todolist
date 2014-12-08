@@ -5,9 +5,11 @@ import (
 	"strings"
 
 	"github.com/russross/blackfriday"
+	"strconv"
 )
 
 var nilContentERR = errors.New("content == nil")
+var colors = 11
 
 func newMessage(message *Message) error {
 	msg := message.Data.(map[string]interface{})
@@ -22,6 +24,17 @@ func newMessage(message *Message) error {
 	err = decode(v, &chanInfo)
 	if err != nil {
 		return err
+	}
+
+	color, err := strconv.Atoi(msg["color"].(string))
+	if err != nil {
+		return err
+	}
+
+	// 检查收到的颜色编号是否合法
+	if color > colors {
+		// 超出许可范围，设置为默认值
+		color = 0
 	}
 
 	// 检查是否为空信息
@@ -48,6 +61,7 @@ func newMessage(message *Message) error {
 
 	// 编码msg数据
 	var conInfo = &contentInfo{
+		Color:   color,
 		Content: toMarkdown(escape(msg["content"].(string))),
 	}
 	buf, err = encode(conInfo)

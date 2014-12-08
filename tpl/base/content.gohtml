@@ -20,12 +20,34 @@ func Content(channel string, _buffer *bytes.Buffer) {
 		<div id="{{info.ID}}" class="col-xs-12 col-sm-6 col-md-4">
 			<div class="content">
 				<div class="panel-body">{{info.Content}}</div>
-				// 判断是否需要添加颜色参数
-				var addition string
-				if info.Color != "" {
-					addition = ` style="background-color: ` + info.Color + `;"`
+				var color string
+				switch info.Color {
+				case 0:
+					color = "default"
+				case 1:
+					color = "red"
+				case 2:
+					color = "pink"
+				case 3:
+					color = "orange"
+				case 4:
+					color = "yellow"
+				case 5:
+					color = "lime"
+				case 6:
+					color = "green"
+				case 7:
+					color = "teal"
+				case 8:
+					color = "blue"
+				case 9:
+					color = "indigo"
+				case 10:
+					color = "deep-purple"
+				case 11:
+					color = "purple"
 				}
-				<div class="panel-footer"{{addition}}>
+				<div class="panel-footer {{color}}">
 					<i class="fa fa-clock-o"></i>
 					<a>time</a>
 				</div>

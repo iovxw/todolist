@@ -4182,14 +4182,15 @@ y=H.VM(new W.RO(y,"message",!1),[null])
 H.VM(new W.xC(0,y.J6,y.fA,W.VF(new N.wj()),y.el),[H.Kp(y,0)]).DN()},
 em:{
 "^":"Tp:28;",
-$1:function(a){var z,y,x
+$1:function(a){var z,y,x,w
 P.JS("Send mesaage")
 z=document.querySelector("#editor div div div .editor")
 y=W.vD(z.querySelectorAll("br"),null)
 y.aN(y,new N.VW())
-x=C.xr.KP(P.EF(["Type","new","Data",P.EF(["channel","piazza","content",z.textContent],null,null)],null,null))
+x=document.querySelector(".colors .fa.fa-check").id
+w=C.xr.KP(P.EF(["Type","new","Data",P.EF(["channel","piazza","content",z.textContent,"color",x],null,null)],null,null))
 P.JS(z.textContent)
-$.j4.send(x)
+$.j4.send(w)
 z.textContent=""
 J.Up(document.querySelector("button.close"))},
 $isEH:true},
@@ -4240,12 +4241,36 @@ this.c.$0()},
 $isEH:true},
 wj:{
 "^":"Tp:30;",
-$1:function(a){var z,y,x,w
+$1:function(a){var z,y,x,w,v
 z=C.xr.kV(J.AG(J.Qd(a)))
 y=J.U6(z)
-switch(y.t(z,"Type")){case"newMsg":x=W.U9("          <div id=\""+H.d(J.UQ(y.t(z,"Data"),"ID"))+"\" class=\"col-xs-12 col-sm-6 col-md-4\">\n\t\t      \t<div class=\"content\">\n\t\t\t      \t<div class=\"panel-body\">"+H.d(J.UQ(y.t(z,"Data"),"Content"))+"</div>\n              <div class=\"panel-footer\" style=\"background-color: "+H.d(J.UQ(y.t(z,"Data"),"Color"))+";\">\n                <i class=\"fa fa-clock-o\"></i>\n\t\t\t\t        <a>time</a>\n              </div>\n            </div>\n          </div>\n        ",null,null)
-w=document.querySelector("body .container .row div")
-w.parentElement.insertBefore(x,w)
+switch(y.t(z,"Type")){case"newMsg":switch(J.UQ(y.t(z,"Data"),"Color")){case 0:x="default"
+break
+case 1:x="red"
+break
+case 2:x="pink"
+break
+case 3:x="orange"
+break
+case 4:x="yellow"
+break
+case 5:x="lime"
+break
+case 6:x="green"
+break
+case 7:x="teal"
+break
+case 8:x="blue"
+break
+case 9:x="indigo"
+break
+case 10:x="deep-purple"
+break
+case 11:x="purple"
+break
+default:x=null}w=W.U9("          <div id=\""+H.d(J.UQ(y.t(z,"Data"),"ID"))+"\" class=\"col-xs-12 col-sm-6 col-md-4\">\n\t\t      \t<div class=\"content\">\n\t\t\t      \t<div class=\"panel-body\">"+H.d(J.UQ(y.t(z,"Data"),"Content"))+"</div>\n              <div class=\"panel-footer "+H.d(x)+"\"\">\n                <i class=\"fa fa-clock-o\"></i>\n\t\t\t\t        <a>time</a>\n              </div>\n            </div>\n          </div>\n        ",null,null)
+v=document.querySelector("body .container .row div")
+v.parentElement.insertBefore(w,v)
 break
 case"error":P.JS(y.t(z,"Data"))
 break}},

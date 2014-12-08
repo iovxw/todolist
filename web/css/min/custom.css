@@ -60,7 +60,7 @@ body {
 }
 
 .color-box.default {
-	background-color: #F5F5F5;
+	background-color: #5B5B5B;
 }
 
 .color-box.red {
@@ -114,8 +114,60 @@ body {
 	border: 3px solid rgba(0, 0, 0, 0.3);
 }
 
+.panel-footer {
+	color: white;
+}
+
+.panel-footer.default {
+	background-color: #5B5B5B;
+}
+
+.panel-footer.red {
+	background-color: #e51c32;
+}
+
+.panel-footer.pink {
+	background-color: #e91e63;
+}
+
+.panel-footer.orange {
+	background-color: #ff9800;
+}
+
+.panel-footer.yellow {
+	background-color: #ffeb3b;
+}
+
+.panel-footer.lime {
+	background-color: #cddc39;
+}
+
+.panel-footer.green {
+	background-color: #259b24;
+}
+
+.panel-footer.teal {
+	background-color: #009688;
+}
+
+.panel-footer.blue {
+	background-color: #5677fc;
+}
+
+.panel-footer.indigo {
+	background-color: #3f51b5;
+}
+
+.panel-footer.deep-purple {
+	background-color: #673ab7;
+}
+
+.panel-footer.purple {
+	background-color: #9c27b0;
+}
+
 .panel-footer a {
-	color: #999;
+	color: white;
 	margin-left: 3px;
 	margin-right: 10px;
 	text-decoration: none;
