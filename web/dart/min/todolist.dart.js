@@ -4204,7 +4204,7 @@ z=this.c
 y=J.F8(z)
 x=z.getAttribute("class")
 w=this.b
-if(J.pB(x,w)!==0){z.setAttribute("class",x+w)
+if(J.pB(x,w)===-1){z.setAttribute("class",x+w)
 for(z=this.a,z=z.gA(z);z.G();){v=z.Ff
 u=J.RE(v)
 t=u.gjO(v)

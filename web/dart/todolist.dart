@@ -36,7 +36,7 @@ void main() {
       var id = colorBox.id;
       var str = colorBox.getAttribute("class");
       // 检查是否已经被选中
-      if (str.indexOf(selected) != 0) {
+      if (str.indexOf(selected) == -1) {
         // 选中
         colorBox.setAttribute("class", str + selected);
 
