@@ -44,6 +44,61 @@ body {
 	padding-bottom: 3px;
 }
 
+.colors {
+	padding: 0 15px 0 15px;
+}
+
+.color-box {
+	width: 20px;
+	height: 20px;
+	float: left;
+	margin: 10px 10px 0 0;
+}
+
+.color-box.red {
+	background-color: #e51c32;
+}
+
+.color-box.pink {
+	background-color: #e91e63;
+}
+
+.color-box.orange {
+	background-color: #ff9800;
+}
+
+.color-box.yellow {
+	background-color: #ffeb3b;
+}
+
+.color-box.lime {
+	background-color: #cddc39;
+}
+
+.color-box.green {
+	background-color: #259b24;
+}
+
+.color-box.teal {
+	background-color: #009688;
+}
+
+.color-box.blue {
+	background-color: #5677fc;
+}
+
+.color-box.indigo {
+	background-color: #3f51b5;
+}
+
+.color-box.deep-purple {
+	background-color: #673ab7;
+}
+
+.color-box.purple {
+	background-color: #9c27b0;
+}
+
 .panel-footer a {
 	color: #999;
 	margin-left: 3px;

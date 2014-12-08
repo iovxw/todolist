@@ -7,8 +7,8 @@ import (
 	"github.com/Bluek404/todolist/modules"
 	"github.com/Bluek404/todolist/tpl"
 
-	"github.com/Unknwon/macaron"
-	"github.com/macaron-contrib/sockets"
+	"github.com/go-martini/martini"
+	sockets "github.com/beatrichartz/martini-sockets"
 )
 
 func main() {
@@ -19,7 +19,7 @@ func main() {
 	}
 	defer modules.Exit()
 
-	m := macaron.Classic()
+	m := martini.Classic()
 	m.Get("/", tpl.Index)
 	m.Get("/ws", sockets.JSON(modules.Message{}), modules.WSMain)
 

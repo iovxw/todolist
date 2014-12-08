@@ -3811,7 +3811,7 @@ wj:{
 $1:function(a){var z,y,x,w
 z=C.xr.kV(J.AG(J.Qd(a)))
 y=J.U6(z)
-switch(y.t(z,"Type")){case"newMsg":x=W.U9("          <div id=\""+H.d(J.UQ(y.t(z,"Data"),"ID"))+"\" class=\"col-md-4\">\n            <div class=\"content\">\n              <div class=\"con\">"+H.d(J.UQ(y.t(z,"Data"),"Content"))+"</div>\n              <div class=\"info\">\n                <i class=\"fa fa-clock-o\"></i>\n                <a>time</a>\n              </div>\n            </div>\n          </div>\n        ",null,null)
+switch(y.t(z,"Type")){case"newMsg":x=W.U9("          <div id=\""+H.d(J.UQ(y.t(z,"Data"),"ID"))+"\" class=\"col-xs-12 col-sm-6 col-md-4\">\n\t\t      \t<div class=\"content\">\n\t\t\t      \t<div class=\"panel-body\">"+H.d(J.UQ(y.t(z,"Data"),"Content"))+"</div>\n              <div class=\"panel-footer\" style=\"background-color: "+H.d(J.UQ(y.t(z,"Data"),"Color"))+";\">\n                <i class=\"fa fa-clock-o\"></i>\n\t\t\t\t        <a>time</a>\n              </div> \n            </div>\n          </div>\n        ",null,null)
 w=document.querySelector("body .container .row div")
 w.parentElement.insertBefore(x,w)
 break

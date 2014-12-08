@@ -69,12 +69,12 @@ void initWebSocket([int retrySeconds = 2]) {
     case "newMsg":
       var content = new Element.html(
         '''
-          <div id="${msg["Data"]["ID"]}" class="col-md-4">
-            <div class="content">
-              <div class="con">${msg["Data"]["Content"]}</div>
-              <div class="info">
+          <div id="${msg["Data"]["ID"]}" class="col-xs-12 col-sm-6 col-md-4">
+		      	<div class="content">
+			      	<div class="panel-body">${msg["Data"]["Content"]}</div>
+              <div class="panel-footer" style="background-color: ${msg["Data"]["Color"]};">
                 <i class="fa fa-clock-o"></i>
-                <a>time</a>
+				        <a>time</a>
               </div>
             </div>
           </div>
