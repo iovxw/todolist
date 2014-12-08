@@ -9,7 +9,7 @@ void main() {
 
   querySelector("#submit").onClick.listen((MouseEvent e) {
     print("Send mesaage");
-    var editor = querySelector("#editor div div div .editor");
+    var editor = querySelector("#editor");
     // 将br转变为换行标记
     editor.querySelectorAll("br").forEach((Element e) {
       e.text = "<{#}>";
@@ -18,40 +18,20 @@ void main() {
       'Type': 'new',
       'Data': {
         'channel': 'piazza',
-        'content': editor.text,
+        'author': 'unknown',
+        'content': editor.text
       }
     });
     print(editor.text);
     socket.send(message);
     editor.text = "";
-    querySelector("button.close").click();
   });
 
-  var colorBoxes = querySelectorAll(".colors .color-box");
-
-  const selected = " fa fa-check";
-
-  for (Element colorBox in colorBoxes) {
-    colorBox.onClick.listen((MouseEvent e) {
-      var id = colorBox.id;
-      var str = colorBox.getAttribute("class");
-      // 检查是否已经被选中
-      if (str.indexOf(selected) != 0) {
-        // 选中
-        colorBox.setAttribute("class", str + selected);
-
-        // 取消选中其他选框
-        for (Element colorBox in colorBoxes) {
-          // 跳过被选中的colorBox
-          if (colorBox.id != id) {
-            // 取消选中
-            str = colorBox.getAttribute("class").replaceAll(selected, "");
-            colorBox.setAttribute("class", str);
-          }
-        }
-      }
+  querySelectorAll(".toolbar .btn.btn-success").forEach((Element btn) {
+    btn.onClick.listen((MouseEvent e) {
+      print(btn.parent.parent.id);
     });
-  }
+  });
 }
 
 void initWebSocket([int retrySeconds = 2]) {
@@ -87,22 +67,16 @@ void initWebSocket([int retrySeconds = 2]) {
     var msg = JSON.decode(e.data.toString());
     switch (msg["Type"]) {
     case "newMsg":
-      var content = new Element.html(
-        '''
-          <div id="${msg["Data"]["ID"]}" class="col-xs-12 col-sm-6 col-md-4">
-		      	<div class="content">
-			      	<div class="panel-body">${msg["Data"]["Content"]}</div>
-              <div class="panel-footer" style="background-color: ${msg["Data"]["Color"]};">
-                <i class="fa fa-clock-o"></i>
-				        <a>time</a>
-              </div>
-            </div>
-          </div>
-        '''
-      );
+      var content = new Element.html('<div id="${msg["Data"]["ID"]}" class="content"><p>${msg["Data"]["Content"]}</p><div class="editor editor-reply"></div><div class="toolbar"><a class="btn btn-success">回复</a></div></div>');
+      // 因为上面无法直接解析contenteditable属性
+      // 所以在这里手动添加
+      content.querySelector(".editor.editor-reply").attributes['contenteditable'] = 'true';
+      // 设置本消息上的回复按钮onClick事件
+      content.querySelector(".toolbar .btn.btn-success").onClick.listen((MouseEvent e) {
+        print(msg["Data"]["ID"]);
+      });
       // 在所有消息前插入本消息
-      var childDiv = querySelector("body .container .row div");
-      childDiv.parent.insertBefore(content, childDiv);
+      querySelector("#stream").insertBefore(content, querySelector("#stream .content"));
       break;
     case "error":
       print(msg["Data"]);

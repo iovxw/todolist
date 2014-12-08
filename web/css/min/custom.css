@@ -55,6 +55,14 @@ body {
 	margin: 10px 10px 0 0;
 }
 
+.color-box:hover {
+	border: 3px solid rgba(0, 0, 0, 0.3);
+}
+
+.color-box.default {
+	background-color: #F5F5F5;
+}
+
 .color-box.red {
 	background-color: #e51c32;
 }
@@ -97,6 +105,13 @@ body {
 
 .color-box.purple {
 	background-color: #9c27b0;
+}
+
+.color-box.fa-check {
+	color: white;
+	font-size: 120%;
+	padding: 4px;
+	border: 3px solid rgba(0, 0, 0, 0.3);
 }
 
 .panel-footer a {
