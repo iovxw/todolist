@@ -4303,7 +4303,7 @@ case 10:x="deep-purple"
 break
 case 11:x="purple"
 break
-default:x=null}w=W.U9("          <div id=\""+H.d(J.UQ(y.t(z,"Data"),"ID"))+"\" class=\"col-xs-12 col-sm-6 col-md-4\">\n\t\t      \t<div class=\"content\">\n\t\t\t      \t<div class=\"panel-body\">"+H.d(J.UQ(y.t(z,"Data"),"Content"))+"</div>\n              <div class=\"panel-footer "+H.d(x)+"\">\n                <i class=\"fa fa-clock-o\"></i>\n\t\t\t\t        <a>time</a>\n              </div>\n            </div>\n          </div>\n        ",null,null)
+default:x=null}w=W.U9("          <div id=\""+H.d(J.UQ(y.t(z,"Data"),"ID"))+"\" class=\"col-xs-12 col-sm-6 col-md-4\">\n\t\t      \t<div class=\"content\">\n\t\t\t      \t<div class=\"panel-body\">"+H.d(J.UQ(y.t(z,"Data"),"Content"))+"</div>\n              <div class=\"panel-footer "+H.d(x)+"\">\n                <i class=\"fa fa-clock-o\"></i><a>time</a>\n              </div>\n            </div>\n          </div>\n        ",null,null)
 N.AR(J.c1(w,".panel-footer"))
 v=document.querySelector("body .container .row div")
 if(v==null)document.querySelector("body .container .row").appendChild(w)

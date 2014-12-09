@@ -3,8 +3,7 @@ import "dart:html";import "dart:convert";import "dart:async";WebSocket k;void ma
 		      	<div class="content">
 			      	<div class="panel-body">${h["Data"]["Content"]}</div>
               <div class="panel-footer ${g}">
-                <i class="fa fa-clock-o"></i>
-				        <a>time</a>
+                <i class="fa fa-clock-o"></i><a>time</a>
               </div>
             </div>
           </div>

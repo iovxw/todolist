@@ -139,8 +139,7 @@ void initWebSocket([int retrySeconds = 2]) {
 		      	<div class="content">
 			      	<div class="panel-body">${msg["Data"]["Content"]}</div>
               <div class="panel-footer ${color}">
-                <i class="fa fa-clock-o"></i>
-				        <a>time</a>
+                <i class="fa fa-clock-o"></i><a>time</a>
               </div>
             </div>
           </div>
