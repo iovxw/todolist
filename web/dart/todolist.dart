@@ -147,9 +147,17 @@ void initWebSocket([int retrySeconds = 2]) {
         '''
       );
       showRemoveBtn(content.querySelector(".panel-footer"));
-      // 在所有消息前插入本消息
+
+      // 插入消息
       var childDiv = querySelector("body .container .row div");
-      childDiv.parent.insertBefore(content, childDiv);
+      // 如果找不到已存在的消息，直接插入
+      if (childDiv == null) {
+        // 直接插入
+        querySelector("body .container .row").append(content);
+      } else {
+        // 在所有消息前插入本消息
+        childDiv.parent.insertBefore(content, childDiv);
+      }
       break;
     case "error":
       print(msg["Data"]);
