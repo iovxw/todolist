@@ -30,6 +30,10 @@ void main() {
     querySelector("button.close").click();
   });
 
+  querySelectorAll(".content .panel-footer").forEach((Element toolBar){
+    showRemoveBtn(toolBar);
+  });
+
   var colorBoxes = querySelectorAll(".colors .color-box");
 
   const selected = " fa fa-check";
@@ -134,7 +138,7 @@ void initWebSocket([int retrySeconds = 2]) {
           <div id="${msg["Data"]["ID"]}" class="col-xs-12 col-sm-6 col-md-4">
 		      	<div class="content">
 			      	<div class="panel-body">${msg["Data"]["Content"]}</div>
-              <div class="panel-footer ${color}"">
+              <div class="panel-footer ${color}">
                 <i class="fa fa-clock-o"></i>
 				        <a>time</a>
               </div>
@@ -142,6 +146,7 @@ void initWebSocket([int retrySeconds = 2]) {
           </div>
         '''
       );
+      showRemoveBtn(content.querySelector(".panel-footer"));
       // 在所有消息前插入本消息
       var childDiv = querySelector("body .container .row div");
       childDiv.parent.insertBefore(content, childDiv);
@@ -150,5 +155,25 @@ void initWebSocket([int retrySeconds = 2]) {
       print(msg["Data"]);
       break;
     }
+  });
+}
+
+void showRemoveBtn(Element toolBar) {
+  toolBar.onMouseEnter.listen((MouseEvent e){
+    var removeButton = new Element.html('<div><i class="fa fa-times"></i></div>');
+    removeButton.onClick.listen((MouseEvent e){
+      var div = removeButton.parent.parent.parent;
+      div.remove();
+      socket.send(JSON.encode({
+          'Type': 'remove',
+          'Data': {
+              'id': div.id,
+          }
+      }));
+    });
+    toolBar.append(removeButton);
+  });
+  toolBar.onMouseLeave.listen((MouseEvent e){
+    toolBar.querySelector("div").remove();
   });
 }

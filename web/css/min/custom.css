@@ -39,11 +39,6 @@ body {
 	padding-bottom: 0;
 }
 
-.panel-footer {
-	padding-top: 3px;
-	padding-bottom: 3px;
-}
-
 .colors {
 	padding: 0 15px 0 15px;
 }
@@ -116,6 +111,8 @@ body {
 
 .panel-footer {
 	color: white;
+	padding-top: 3px;
+	padding-bottom: 3px;
 }
 
 .panel-footer.default {
@@ -171,4 +168,8 @@ body {
 	margin-left: 3px;
 	margin-right: 10px;
 	text-decoration: none;
+}
+
+.panel-footer div {
+	float: right;
 }

@@ -2,10 +2,11 @@ package modules
 
 import (
 	"errors"
+	"strconv"
 	"strings"
 
+	"fmt"
 	"github.com/russross/blackfriday"
-	"strconv"
 )
 
 var nilContentERR = errors.New("content == nil")
@@ -77,6 +78,48 @@ func newMessage(message *Message) error {
 	// 将新信息推送到全部客户端
 	conInfo.ID = id
 	pushMessageToClient(conInfo)
+
+	return nil
+}
+
+func removeMessage(message *Message) error {
+	msg := message.Data.(map[string]interface{})
+	id := msg["id"].(string)
+	channel := "piazza"
+
+	// 读取channel数据
+	v, err := db.Get([]byte(channel), nil)
+	if err != nil {
+		return err
+	}
+	var chanInfo channelInfo
+	// 解码数据
+	err = decode(v, &chanInfo)
+	if err != nil {
+		return err
+	}
+
+	// 根据channel数据里存储的列表找到单条message的key
+	for k, v := range chanInfo.MsgIDList {
+		if v == id {
+			chanInfo.MsgIDList = append(chanInfo.MsgIDList[:k], chanInfo.MsgIDList[k+1:]...)
+		}
+	}
+
+	buf, err := encode(&chanInfo)
+	if err != nil {
+		return err
+	}
+	err = db.Put([]byte(channel), buf, nil)
+	if err != nil {
+		return err
+	}
+	fmt.Println(chanInfo.MsgIDList)
+
+	err = db.Delete([]byte(channel+"_"+id), nil)
+	if err != nil {
+		return err
+	}
 
 	return nil
 }

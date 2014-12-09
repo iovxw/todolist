@@ -32,6 +32,17 @@ func WSMain(receiver <-chan *Message, sender chan<- *Message, done <-chan bool, 
 						}
 					}
 				}
+			case "remove":
+				err := removeMessage(msg)
+				if err != nil {
+					log.Println("[removeMessage]ERROR:", err)
+					sender <- &Message{
+						Type: "error",
+						Data: "服务器发生内部错误！删除失败",
+					}
+				}
+			default:
+				log.Println("[WSMain]ERROR: unknown type", msg.Type)
 			}
 		//case <-ticker:
 		// This will close the connection after 30 minutes no matter what
