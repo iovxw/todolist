@@ -7,8 +7,8 @@ import (
 	"github.com/Bluek404/todolist/modules"
 	"github.com/Bluek404/todolist/tpl"
 
-	"github.com/go-martini/martini"
 	sockets "github.com/beatrichartz/martini-sockets"
+	"github.com/go-martini/martini"
 )
 
 func main() {
@@ -23,6 +23,6 @@ func main() {
 	m.Get("/", tpl.Index)
 	m.Get("/ws", sockets.JSON(modules.Message{}), modules.WSMain)
 
-	log.Println("Run Wordfalls on", modules.Config.Host+":"+modules.Config.Port)
-	log.Println(http.ListenAndServe(modules.Config.Host+":"+modules.Config.Port, m))
+	log.Println("Run todolist on", modules.Config.Host)
+	log.Println(http.ListenAndServe(modules.Config.Host, m))
 }

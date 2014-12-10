@@ -38,5 +38,4 @@ func saveConfig() error {
 type cfg struct {
 	FirstRun bool   `yaml:"firstRun"`
 	Host     string `yaml:"host"`
-	Port     string `yaml:"port"`
 }

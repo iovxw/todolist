@@ -4,16 +4,12 @@ body {
 	margin-right: auto;
 }
 
-#config {
-	display:none;
-}
-
 .editor {
 	width: 100%;
 	min-height: 160px;
 	font-size: 16px;
 	line-height: 20px;
-    white-space: nowrap;
+	white-space: nowrap;
 	overflow: auto;
 }
 

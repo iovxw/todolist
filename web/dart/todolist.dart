@@ -3,9 +3,15 @@ import 'dart:async';
 import 'dart:convert';
 
 WebSocket socket;
-var config = JSON.decode(querySelector("#config").text);
+Map config;
 
 void main() {
+  Location currentLocation = window.location;
+  config = {
+      'host': currentLocation.host,
+      'head': "https" == currentLocation.protocol ? 'wss':'ws',
+  };
+
   initWebSocket();
 
   querySelector("#submit").onClick.listen((MouseEvent e) {
@@ -66,7 +72,7 @@ void initWebSocket([int retrySeconds = 2]) {
   var reconnectScheduled = false;
 
   print("Connecting to websocket");
-  socket = new WebSocket('ws://127.0.0.1:${config["port"]}/ws');
+  socket = new WebSocket('${config["head"]}://${config["host"]}/ws');
 
   void scheduleReconnect() {
     if (!reconnectScheduled) {
@@ -158,7 +164,8 @@ void initWebSocket([int retrySeconds = 2]) {
           </div>
         '''
       );
-        removeBtnClicked(content.querySelector(".dropdown-menu li a .fa-times").parent);
+
+      removeBtnClicked(content.querySelector(".dropdown-menu li a .fa-times").parent);
 
       // 插入消息
       var childDiv = querySelector("body .container .row div");
