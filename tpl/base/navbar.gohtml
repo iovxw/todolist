@@ -20,10 +20,10 @@ func Navbar(_buffer *bytes.Buffer) {
                     <li class="active"><a href="#">首页</a></li>
                     <li><a href="#">Link</a></li>
                 </ul>
+                <form class="navbar-form navbar-left">
+                    <input class="form-control col-lg-8" placeholder="搜索……" type="text">
+                </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <form class="navbar-form navbar-left">
-                        <input class="form-control col-lg-8" placeholder="Search" type="text">
-                    </form>
                     <li><a data-toggle="modal" href="#editor"><i class="fa fa-plus"></i> Add</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>

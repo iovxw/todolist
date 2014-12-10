@@ -148,7 +148,7 @@ void initWebSocket([int retrySeconds = 2]) {
               <div class="panel-footer ${color}">
                 <i class="fa fa-clock-o"></i><a>time</a>
                 <div class="btn-group">
-                  <a data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+                  <a><i class="fa fa-ellipsis-v"></i></a>
                   <ul class="dropdown-menu">
                     <li>
                       <a><i class="fa fa-check"></i> 标记为已完成</a>
@@ -166,6 +166,8 @@ void initWebSocket([int retrySeconds = 2]) {
       );
 
       removeBtnClicked(content.querySelector(".dropdown-menu li a .fa-times").parent);
+
+      content.querySelector('.btn-group > a').attributes['data-toggle'] = 'dropdown';
 
       // 插入消息
       var childDiv = querySelector("body .container .row div");

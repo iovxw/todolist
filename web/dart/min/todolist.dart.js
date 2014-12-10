@@ -4285,8 +4285,10 @@ case 10:x="deep-purple"
 break
 case 11:x="purple"
 break
-default:x=null}w=W.U9("          <div id=\""+H.d(J.UQ(y.t(z,"Data"),"ID"))+"\" class=\"col-xs-12 col-sm-6 col-md-4\">\n\t\t      \t<div class=\"content\">\n\t\t\t      \t<div class=\"panel-body\">"+H.d(J.UQ(y.t(z,"Data"),"Content"))+"</div>\n              <div class=\"panel-footer "+H.d(x)+"\">\n                <i class=\"fa fa-clock-o\"></i><a>time</a>\n                <div class=\"btn-group\">\n                  <a data-toggle=\"dropdown\"><i class=\"fa fa-ellipsis-v\"></i></a>\n                  <ul class=\"dropdown-menu\">\n                    <li>\n                      <a><i class=\"fa fa-check\"></i> \u6807\u8bb0\u4e3a\u5df2\u5b8c\u6210</a>\n                    </li>\n                    <li class=\"divider\"></li>\n                    <li>\n                      <a><i class=\"fa fa-times\"></i> \u5220\u9664</a>\n                    </li>\n                  </ul>\n                </div>\n              </div>\n            </div>\n          </div>\n        ",null,null)
-N.iJ(J.c1(w,".dropdown-menu li a .fa-times").parentElement)
+default:x=null}w=W.U9("          <div id=\""+H.d(J.UQ(y.t(z,"Data"),"ID"))+"\" class=\"col-xs-12 col-sm-6 col-md-4\">\n\t\t      \t<div class=\"content\">\n\t\t\t      \t<div class=\"panel-body\">"+H.d(J.UQ(y.t(z,"Data"),"Content"))+"</div>\n              <div class=\"panel-footer "+H.d(x)+"\">\n                <i class=\"fa fa-clock-o\"></i><a>time</a>\n                <div class=\"btn-group\">\n                  <a><i class=\"fa fa-ellipsis-v\"></i></a>\n                  <ul class=\"dropdown-menu\">\n                    <li>\n                      <a><i class=\"fa fa-check\"></i> \u6807\u8bb0\u4e3a\u5df2\u5b8c\u6210</a>\n                    </li>\n                    <li class=\"divider\"></li>\n                    <li>\n                      <a><i class=\"fa fa-times\"></i> \u5220\u9664</a>\n                    </li>\n                  </ul>\n                </div>\n              </div>\n            </div>\n          </div>\n        ",null,null)
+y=J.RE(w)
+N.iJ(y.Wk(w,".dropdown-menu li a .fa-times").parentElement)
+y.Wk(w,".btn-group > a").setAttribute("data-toggle","dropdown")
 v=document.querySelector("body .container .row div")
 if(v==null)document.querySelector("body .container .row").appendChild(w)
 else v.parentElement.insertBefore(w,v)
@@ -4436,7 +4438,6 @@ J.Vg=function(a){return J.RE(a).gVl(a)}
 J.Vm=function(a){return J.RE(a).gP(a)}
 J.WB=function(a,b){if(typeof a=="number"&&typeof b=="number")return a+b
 return J.Qc(a).g(a,b)}
-J.c1=function(a,b){return J.RE(a).Wk(a,b)}
 J.de=function(a,b){if(a==null)return b==null
 if(typeof a!="object")return b!=null&&a===b
 return J.x(a).n(a,b)}
