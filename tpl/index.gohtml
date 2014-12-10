@@ -3,6 +3,7 @@ package tpl
 import (
 	"bytes"
 
+	"github.com/Bluek404/todolist/modules"
 	"github.com/Bluek404/todolist/tpl/base"
 )
 
@@ -50,6 +51,7 @@ func Index() string {
 				base.Content("piazza", _buffer)
 			</div>
 		</div>
+		<div id="config">{"port":"{{modules.Config.Port}}"}</div>
 		base.Footer(_buffer)
 		</body>
 	</html>

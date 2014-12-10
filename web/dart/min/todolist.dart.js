@@ -4188,7 +4188,7 @@ z={}
 z.a=a
 z.b=!1
 P.JS("Connecting to websocket")
-y=W.pS("ws://127.0.0.1:4000/ws",null)
+y=W.pS("ws://127.0.0.1:"+H.d(J.UQ($.di(),"port"))+"/ws",null)
 $.j4=y
 x=new N.Ur(z)
 y=H.VM(new W.RO(y,"open",!1),[null])
@@ -4685,6 +4685,7 @@ I.$lazy($,"_allowedElements","zX","AM",function(){var z=P.Ls(null,null,null,null
 z.FV(0,["A","ABBR","ACRONYM","ADDRESS","AREA","ARTICLE","ASIDE","AUDIO","B","BDI","BDO","BIG","BLOCKQUOTE","BR","BUTTON","CANVAS","CAPTION","CENTER","CITE","CODE","COL","COLGROUP","COMMAND","DATA","DATALIST","DD","DEL","DETAILS","DFN","DIR","DIV","DL","DT","EM","FIELDSET","FIGCAPTION","FIGURE","FONT","FOOTER","FORM","H1","H2","H3","H4","H5","H6","HEADER","HGROUP","HR","I","IFRAME","IMG","INPUT","INS","KBD","LABEL","LEGEND","LI","MAP","MARK","MENU","METER","NAV","NOBR","OL","OPTGROUP","OPTION","OUTPUT","P","PRE","PROGRESS","Q","S","SAMP","SECTION","SELECT","SMALL","SOURCE","SPAN","STRIKE","STRONG","SUB","SUMMARY","SUP","TABLE","TBODY","TD","TEXTAREA","TFOOT","TH","THEAD","TIME","TR","TRACK","TT","U","UL","VAR","VIDEO","WBR"])
 return z})
 I.$lazy($,"_attributeValidators","or","NJ",function(){return P.Fl(null,null)})
+I.$lazy($,"config","ic","di",function(){return C.xr.kV(document.querySelector("#config").textContent)})
 
 init.metadata=[{func:"n9",void:true,args:[{func:"X0",void:true}]},{func:"X0",void:true},{func:"G5",void:true,args:[null]},{func:"Vx",void:true,args:[null],opt:[P.mE]},,{func:"Ib",ret:P.a2,args:[null,null]},{func:"bX",ret:P.KN,args:[null]},{func:"uJ",ret:P.a,args:[null]},{func:"E0",ret:P.a2,args:[P.a,P.a]},{func:"ZY",ret:P.KN,args:[P.a]},{func:"Vv",ret:P.a2,args:[W.cv,P.qU,P.qU,W.JQ]},{func:"cH",ret:P.KN},{func:"NT"},{func:"bh",args:[null,null]},{func:"aB",args:[null]},{func:"TS",args:[null,P.qU]},{func:"WD",args:[P.qU]},{func:"cO",args:[{func:"X0",void:true}]},{func:"Ns",void:true,args:[P.a],opt:[P.mE]},{func:"BG",args:[null],opt:[null]},{func:"Uf",ret:P.a2},{func:"bb",args:[null,P.mE]},{func:"Za",args:[P.qU,null]},{func:"lv",args:[P.wv,null]},{func:"Pt",ret:P.qU,args:[P.KN]},{func:"qu",void:true,args:[W.KV]},{func:"ZH",args:[P.KN]},{func:"iR",args:[P.KN,null]},{func:"XF",args:[W.Aj]},{func:"Km",args:[W.cv]},{func:"ec",args:[W.cx]},];$=null
 I = I.$finishIsolateConstructor(I)

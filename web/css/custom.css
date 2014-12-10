@@ -4,6 +4,10 @@ body {
 	margin-right: auto;
 }
 
+#config {
+	display:none;
+}
+
 .editor {
 	width: 100%;
 	min-height: 160px;
@@ -111,8 +115,8 @@ body {
 
 .panel-footer {
 	color: white;
-	padding-top: 0;
-	padding-bottom: 0;
+	padding-top: 3px;
+	padding-bottom: 3px;
 }
 
 .panel-footer.default {
@@ -170,11 +174,6 @@ body {
 	text-decoration: none;
 }
 
-/*用于使图标在强制对齐后垂直居中*/
-.panel-footer .fa {
-	margin: 8px 0;
-}
-
-.panel-footer .fa-times {
+.panel-footer div {
 	float: right;
 }

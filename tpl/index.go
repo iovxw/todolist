@@ -3,6 +3,7 @@ package tpl
 import (
 	"bytes"
 
+	"github.com/Bluek404/todolist/modules"
 	"github.com/Bluek404/todolist/tpl/base"
 )
 
@@ -15,7 +16,9 @@ func Index() string {
 	base.Navbar(_buffer)
 	_buffer.WriteString("<div class=\"container\"><div class=\"row\">")
 	base.Content("piazza", _buffer)
-	_buffer.WriteString("</div></div>")
+	_buffer.WriteString("</div></div><div id=\"config\">{\"port\":\"")
+	_buffer.WriteString(modules.Config.Port)
+	_buffer.WriteString("\"}</div>")
 	base.Footer(_buffer)
 	_buffer.WriteString("</body></html>")
 

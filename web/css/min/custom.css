@@ -4,6 +4,10 @@ body {
 	margin-right: auto;
 }
 
+#config {
+	display:none;
+}
+
 .editor {
 	width: 100%;
 	min-height: 160px;

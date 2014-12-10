@@ -3,6 +3,7 @@ import 'dart:async';
 import 'dart:convert';
 
 WebSocket socket;
+var config = JSON.decode(querySelector("#config").text);
 
 void main() {
   initWebSocket();
@@ -65,7 +66,7 @@ void initWebSocket([int retrySeconds = 2]) {
   var reconnectScheduled = false;
 
   print("Connecting to websocket");
-  socket = new WebSocket('ws://127.0.0.1:4000/ws');
+  socket = new WebSocket('ws://127.0.0.1:${config["port"]}/ws');
 
   void scheduleReconnect() {
     if (!reconnectScheduled) {
