@@ -1496,13 +1496,13 @@ static:{j5:function(a,b,c,d){var z=H.VM(new H.bX(a,b,c),[d])
 z.Hd(a,b,c,d)
 return z}}},
 a7:{
-"^":"a;Hb,bd,QX,Ff",
+"^":"a;Hb,SW,QX,Ff",
 gl:function(){return this.Ff},
 G:function(){var z,y,x,w
 z=this.Hb
 y=J.U6(z)
 x=y.gB(z)
-if(this.bd!==x)throw H.b(P.a4(z))
+if(this.SW!==x)throw H.b(P.a4(z))
 w=this.QX
 if(w>=x){this.Ff=null
 return!1}this.Ff=y.Zv(z,w);++this.QX
@@ -2325,7 +2325,6 @@ $0:function(){throw H.b(P.Uz(this.a,this.b))},
 $isEH:true},
 R8:{
 "^":"m0;",
-geT:function(a){return},
 gF7:function(){return this},
 ww:function(a){var z,y,x,w
 try{if(C.NU===$.X3){x=a.$0()
@@ -3058,13 +3057,13 @@ pD:{
 QM:{
 "^":"zF;J2"},
 Sh:{
-"^":"a;xq,jg,SK",
+"^":"a;xq,qR,SK",
 HT:function(a){return this.xq.$1(a)},
 Ip:function(a){var z,y,x,w,v,u,t
 z=J.U6(a)
 y=z.gB(a)
 if(typeof y!=="number")return H.s(y)
-x=this.jg
+x=this.qR
 w=0
 v=0
 for(;v<y;++v){u=z.j(a,v)
@@ -3122,24 +3121,24 @@ throw H.b(P.Gy(a,y))}}},
 Jc:function(a){var z,y,x,w
 z={}
 if(typeof a==="number"){if(!C.CD.gkZ(a))return!1
-this.jg.KF(C.CD.bu(a))
-return!0}else if(a===!0){this.jg.KF("true")
-return!0}else if(a===!1){this.jg.KF("false")
-return!0}else if(a==null){this.jg.KF("null")
-return!0}else if(typeof a==="string"){z=this.jg
+this.qR.KF(C.CD.bu(a))
+return!0}else if(a===!0){this.qR.KF("true")
+return!0}else if(a===!1){this.qR.KF("false")
+return!0}else if(a==null){this.qR.KF("null")
+return!0}else if(typeof a==="string"){z=this.qR
 z.KF("\"")
 this.Ip(a)
 z.KF("\"")
 return!0}else{y=J.x(a)
 if(!!y.$iszM){this.Dx(a)
-z=this.jg
+z=this.qR
 z.KF("[")
 if(y.gB(a)>0){this.C7(y.t(a,0))
 for(x=1;x<y.gB(a);++x){z.IN+=","
 this.C7(y.t(a,x))}}z.KF("]")
 this.E5(a)
 return!0}else if(!!y.$isL8){this.Dx(a)
-w=this.jg
+w=this.qR
 w.KF("{")
 z.a="\""
 y.aN(a,new P.IH(z,this))
@@ -3159,7 +3158,7 @@ IH:{
 "^":"Tp:22;a,b",
 $2:function(a,b){var z,y,x
 z=this.b
-y=z.jg
+y=z.qR
 x=this.a
 y.KF(x.a)
 x.a=",\""
@@ -3260,7 +3259,7 @@ w=z.$1(C.jn.JV(C.jn.BU(y,1000000),60))
 v=new P.P7().$1(C.jn.JV(y,1000000))
 return""+C.jn.BU(y,3600000000)+":"+H.d(x)+":"+H.d(w)+"."+H.d(v)},
 $isa6:true,
-static:{"^":"Wt,S4,dk,Lo,zj,b2,jS,ts,Do,Pu,kT,IJ,D9,Vk,S8,rG",k5:function(a,b,c,d,e,f){return new P.a6(a*86400000000+b*3600000000+e*60000000+f*1000000+d*1000+c)}}},
+static:{"^":"Wt,S4,dk,Lo,zj,b2,jS,Ie,Do,Pu,kT,IJ,D9,Vk,S8,rG",k5:function(a,b,c,d,e,f){return new P.a6(a*86400000000+b*3600000000+e*60000000+f*1000000+d*1000+c)}}},
 P7:{
 "^":"Tp:24;",
 $1:function(a){if(a>=100000)return""+a
@@ -3411,8 +3410,6 @@ pS:function(a,b){return new WebSocket(a)},
 VC:function(a,b){a=536870911&a+b
 a=536870911&a+((524287&a)<<10>>>0)
 return a^a>>>6},
-Pv:function(a){if(a==null)return
-return W.P1(a)},
 VF:function(a){var z=$.X3
 if(z===C.NU)return a
 return z.oj(a,!0)},
@@ -3447,8 +3444,6 @@ QF:{
 "^":"KV;",
 Wk:function(a,b){return a.querySelector(b)},
 gVl:function(a){return H.VM(new W.RO(a,"click",!1),[null])},
-gU7:function(a){return H.VM(new W.RO(a,"mouseenter",!1),[null])},
-gcb:function(a){return H.VM(new W.RO(a,"mouseleave",!1),[null])},
 "%":"Document|HTMLDocument|XMLDocument"},
 hs:{
 "^":"KV;",
@@ -3494,8 +3489,6 @@ tF:function(a){return a.click()},
 GE:function(a,b){return a.getAttribute(b)},
 Wk:function(a,b){return a.querySelector(b)},
 gVl:function(a){return H.VM(new W.Cq(a,"click",!1),[null])},
-gU7:function(a){return H.VM(new W.Cq(a,"mouseenter",!1),[null])},
-gcb:function(a){return H.VM(new W.Cq(a,"mouseleave",!1),[null])},
 $iscv:true,
 "%":";Element"},
 Fs:{
@@ -3609,7 +3602,7 @@ HD:{
 KR:{
 "^":"qE;P:value=",
 "%":"HTMLProgressElement"},
-Mw:{
+JN:{
 "^":"ea;Rn:data=",
 "%":"PushEvent"},
 u2:{
@@ -3641,7 +3634,6 @@ wR:function(a,b){return a.send(b)},
 "%":"WebSocket"},
 K5:{
 "^":"D0;",
-geT:function(a){return W.Pv(a.parent)},
 bu:function(a){return a.toString()},
 gVl:function(a){return H.VM(new W.RO(a,"click",!1),[null])},
 "%":"DOMWindow|Window"},
@@ -3843,7 +3835,7 @@ x=y.t(0,H.d(z)+"::"+b)
 if(x==null)x=y.t(0,"*::"+b)
 if(x==null)return!1
 return x.$4(a,b,c,this)},
-qR:function(a){var z,y
+cp:function(a){var z,y
 z=$.NJ()
 if(z.gl0(z)){for(y=new H.a7(C.zm,261,0,null);y.G();)z.u(0,y.Ff,W.y3())
 for(y=new H.a7(C.BI,12,0,null);y.G();)z.u(0,y.Ff,W.tc())}},
@@ -3851,7 +3843,7 @@ static:{"^":"zX,pR,YA,or",Tw:function(a){var z,y
 z=document.createElement("a",null)
 y=new W.mk(z,window.location)
 y=new W.JQ(y)
-y.qR(a)
+y.cp(a)
 return y},qD:[function(a,b,c,d){return!0},"$4","y3",8,0,10],QW:[function(a,b,c,d){var z,y,x,w,v
 z=d.gKs()
 y=z.Yg
@@ -3921,23 +3913,16 @@ IA:{
 $1:function(a){return"TEMPLATE::"+H.d(a)},
 $isEH:true},
 W9:{
-"^":"a;NX,vN,G3,QZ",
+"^":"a;NX,bd,G3,QZ",
 G:function(){var z,y
 z=this.G3+1
-y=this.vN
+y=this.bd
 if(z<y){this.QZ=J.UQ(this.NX,z)
 this.G3=z
 return!0}this.QZ=null
 this.G3=y
 return!1},
 gl:function(){return this.QZ}},
-dW:{
-"^":"a;uU",
-geT:function(a){return W.P1(this.uU.parent)},
-On:function(a,b,c,d){return H.Vj(P.f("You can only attach EventListeners to your own window."))},
-Y9:function(a,b,c,d){return H.Vj(P.f("You can only attach EventListeners to your own window."))},
-static:{P1:function(a){if(a===window)return a
-else return new W.dW(a)}}},
 kF:{
 "^":"a;"},
 mk:{
@@ -3982,8 +3967,6 @@ d5:{
 "^":"cv;",
 tF:function(a){throw H.b(P.f("Cannot invoke click SVG."))},
 gVl:function(a){return H.VM(new W.Cq(a,"click",!1),[null])},
-gU7:function(a){return H.VM(new W.Cq(a,"mouseenter",!1),[null])},
-gcb:function(a){return H.VM(new W.Cq(a,"mouseleave",!1),[null])},
 "%":"SVGAElement|SVGAltGlyphDefElement|SVGAltGlyphElement|SVGAltGlyphItemElement|SVGAnimateElement|SVGAnimateMotionElement|SVGAnimateTransformElement|SVGAnimationElement|SVGCircleElement|SVGClipPathElement|SVGComponentTransferFunctionElement|SVGCursorElement|SVGDefsElement|SVGDescElement|SVGDiscardElement|SVGElement|SVGEllipseElement|SVGFEBlendElement|SVGFEColorMatrixElement|SVGFEComponentTransferElement|SVGFECompositeElement|SVGFEConvolveMatrixElement|SVGFEDiffuseLightingElement|SVGFEDisplacementMapElement|SVGFEDistantLightElement|SVGFEDropShadowElement|SVGFEFloodElement|SVGFEFuncAElement|SVGFEFuncBElement|SVGFEFuncGElement|SVGFEFuncRElement|SVGFEGaussianBlurElement|SVGFEImageElement|SVGFEMergeElement|SVGFEMergeNodeElement|SVGFEMorphologyElement|SVGFEOffsetElement|SVGFEPointLightElement|SVGFESpecularLightingElement|SVGFESpotLightElement|SVGFETileElement|SVGFETurbulenceElement|SVGFilterElement|SVGFontElement|SVGFontFaceElement|SVGFontFaceFormatElement|SVGFontFaceNameElement|SVGFontFaceSrcElement|SVGFontFaceUriElement|SVGForeignObjectElement|SVGGElement|SVGGeometryElement|SVGGlyphElement|SVGGlyphRefElement|SVGGradientElement|SVGGraphicsElement|SVGHKernElement|SVGImageElement|SVGLineElement|SVGLinearGradientElement|SVGMPathElement|SVGMarkerElement|SVGMaskElement|SVGMetadataElement|SVGMissingGlyphElement|SVGPathElement|SVGPatternElement|SVGPolygonElement|SVGPolylineElement|SVGRadialGradientElement|SVGRectElement|SVGSVGElement|SVGScriptElement|SVGSetElement|SVGStopElement|SVGStyleElement|SVGSwitchElement|SVGSymbolElement|SVGTSpanElement|SVGTextContentElement|SVGTextElement|SVGTextPathElement|SVGTextPositioningElement|SVGTitleElement|SVGUseElement|SVGVKernElement|SVGViewElement"}}],["","",,P,{
 "^":"",
 IU:{
@@ -4178,7 +4161,7 @@ Iq:[function(){var z,y,x
 N.Tv(2)
 z=J.Vg(document.querySelector("#submit"))
 H.VM(new W.xC(0,z.J6,z.fA,W.VF(new N.em()),z.el),[H.Kp(z,0)]).DN()
-z=W.vD(document.querySelectorAll(".content .panel-footer"),null)
+z=W.vD(document.querySelectorAll(".dropdown-menu li a .fa-times"),null)
 z.aN(z,new N.Lb())
 y=W.vD(document.querySelectorAll(".colors .color-box"),null)
 for(z=y.gA(y);z.G();){x=z.Ff
@@ -4205,12 +4188,8 @@ y=$.j4
 y.toString
 y=H.VM(new W.RO(y,"message",!1),[null])
 H.VM(new W.xC(0,y.J6,y.fA,W.VF(new N.wj()),y.el),[H.Kp(y,0)]).DN()},
-AR:function(a){var z,y
-z=J.RE(a)
-y=z.gU7(a)
-H.VM(new W.xC(0,y.J6,y.fA,W.VF(new N.og(a)),y.el),[H.Kp(y,0)]).DN()
-z=z.gcb(a)
-H.VM(new W.xC(0,z.J6,z.fA,W.VF(new N.yB(a)),z.el),[H.Kp(z,0)]).DN()},
+iJ:function(a){var z=J.Vg(a)
+H.VM(new W.xC(0,z.J6,z.fA,W.VF(new N.ax(a)),z.el),[H.Kp(z,0)]).DN()},
 em:{
 "^":"Tp:28;",
 $1:function(a){var z,y,x,w
@@ -4231,7 +4210,7 @@ $1:function(a){J.t3(a,"<{#}>")},
 $isEH:true},
 Lb:{
 "^":"Tp:29;",
-$1:function(a){N.AR(a)},
+$1:function(a){N.iJ(J.Lp(a))},
 $isEH:true},
 QA:{
 "^":"Tp:28;a,b,c",
@@ -4303,8 +4282,8 @@ case 10:x="deep-purple"
 break
 case 11:x="purple"
 break
-default:x=null}w=W.U9("          <div id=\""+H.d(J.UQ(y.t(z,"Data"),"ID"))+"\" class=\"col-xs-12 col-sm-6 col-md-4\">\n\t\t      \t<div class=\"content\">\n\t\t\t      \t<div class=\"panel-body\">"+H.d(J.UQ(y.t(z,"Data"),"Content"))+"</div>\n              <div class=\"panel-footer "+H.d(x)+"\">\n                <i class=\"fa fa-clock-o\"></i><a>time</a>\n              </div>\n            </div>\n          </div>\n        ",null,null)
-N.AR(J.c1(w,".panel-footer"))
+default:x=null}w=W.U9("          <div id=\""+H.d(J.UQ(y.t(z,"Data"),"ID"))+"\" class=\"col-xs-12 col-sm-6 col-md-4\">\n\t\t      \t<div class=\"content\">\n\t\t\t      \t<div class=\"panel-body\">"+H.d(J.UQ(y.t(z,"Data"),"Content"))+"</div>\n              <div class=\"panel-footer "+H.d(x)+"\">\n                <i class=\"fa fa-clock-o\"></i><a>time</a>\n                <div class=\"btn-group\">\n                  <a data-toggle=\"dropdown\"><i class=\"fa fa-ellipsis-v\"></i></a>\n                  <ul class=\"dropdown-menu\">\n                    <li>\n                      <a><i class=\"fa fa-check\"></i> \u6807\u8bb0\u4e3a\u5df2\u5b8c\u6210</a>\n                    </li>\n                    <li class=\"divider\"></li>\n                    <li>\n                      <a><i class=\"fa fa-times\"></i> \u5220\u9664</a>\n                    </li>\n                  </ul>\n                </div>\n              </div>\n            </div>\n          </div>\n        ",null,null)
+N.iJ(J.c1(w,".dropdown-menu li a .fa-times").parentElement)
 v=document.querySelector("body .container .row div")
 if(v==null)document.querySelector("body .container .row").appendChild(w)
 else v.parentElement.insertBefore(w,v)
@@ -4312,32 +4291,20 @@ break
 case"error":P.JS(y.t(z,"Data"))
 break}},
 $isEH:true},
-og:{
+ax:{
 "^":"Tp:28;a",
-$1:function(a){var z=W.U9("<div><i class=\"fa fa-times\"></i></div>",null,null)
-J.Vg(z).yI(new N.wE(z))
-this.a.appendChild(z)},
-$isEH:true},
-wE:{
-"^":"Tp:28;b",
-$1:function(a){var z,y
-z=J.Lp(J.Lp(J.Lp(this.b)))
-y=J.w1(z)
-y.wg(z)
-$.j4.send(C.xr.KP(P.EF(["Type","remove","Data",P.EF(["id",y.gjO(z)],null,null)],null,null)))},
-$isEH:true},
-yB:{
-"^":"Tp:28;c",
-$1:function(a){J.Mp(J.c1(this.c,"div"))},
+$1:function(a){var z=this.a.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement
+J.Mp(z)
+$.j4.send(C.xr.KP(P.EF(["Type","remove","Data",P.EF(["id",z.id],null,null)],null,null)))},
 $isEH:true}},1],])
 I.$finishClasses($$,$,null)
 $$=null
 ;(function(){var z=!0,y
-y=W.KV
-y.$isKV=z
-y.$isa=z
 y=P.KN
 y.$isKN=z
+y.$isa=z
+y=W.KV
+y.$isKV=z
 y.$isa=z
 P.CP.$isa=z
 P.lf.$isa=z

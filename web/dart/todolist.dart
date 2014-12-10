@@ -31,8 +31,8 @@ void main() {
     querySelector("button.close").click();
   });
 
-  querySelectorAll(".content .panel-footer").forEach((Element toolBar){
-    showRemoveBtn(toolBar);
+  querySelectorAll(".dropdown-menu li a .fa-times").forEach((Element toolBar){
+    removeBtnClicked(toolBar.parent);
   });
 
   var colorBoxes = querySelectorAll(".colors .color-box");
@@ -141,12 +141,24 @@ void initWebSocket([int retrySeconds = 2]) {
 			      	<div class="panel-body">${msg["Data"]["Content"]}</div>
               <div class="panel-footer ${color}">
                 <i class="fa fa-clock-o"></i><a>time</a>
+                <div class="btn-group">
+                  <a data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a><i class="fa fa-check"></i> 标记为已完成</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                      <a><i class="fa fa-times"></i> 删除</a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         '''
       );
-      showRemoveBtn(content.querySelector(".panel-footer"));
+        removeBtnClicked(content.querySelector(".dropdown-menu li a .fa-times").parent);
 
       // 插入消息
       var childDiv = querySelector("body .container .row div");
@@ -166,11 +178,9 @@ void initWebSocket([int retrySeconds = 2]) {
   });
 }
 
-void showRemoveBtn(Element toolBar) {
-  toolBar.onMouseEnter.listen((MouseEvent e){
-    var removeButton = new Element.html('<div><i class="fa fa-times"></i></div>');
+void removeBtnClicked(Element removeButton) {
     removeButton.onClick.listen((MouseEvent e){
-      var div = removeButton.parent.parent.parent;
+      var div = removeButton.parent.parent.parent.parent.parent.parent;
       div.remove();
       socket.send(JSON.encode({
           'Type': 'remove',
@@ -179,9 +189,4 @@ void showRemoveBtn(Element toolBar) {
           }
       }));
     });
-    toolBar.append(removeButton);
-  });
-  toolBar.onMouseLeave.listen((MouseEvent e){
-    toolBar.querySelector("div").remove();
-  });
 }
