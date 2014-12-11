@@ -14,14 +14,14 @@ func Content(channel string, _buffer *bytes.Buffer) {
 		_buffer.WriteString("<div class=\"content\"><p>服务器数据库错误！</p></div>")
 		return
 	}
-	for _, info := range contents {
+	for _, msg := range *contents {
 		_buffer.WriteString("<div id=\"")
-		_buffer.WriteString(info.ID)
+		_buffer.WriteString(msg.ID)
 		_buffer.WriteString("\" class=\"col-xs-12 col-sm-6 col-md-4\"><div class=\"content\"><div class=\"panel-body\">")
-		_buffer.WriteString(info.Content)
+		_buffer.WriteString(msg.Content)
 		_buffer.WriteString("</div>")
 		var color string
-		switch info.Color {
+		switch msg.Color {
 		case 0:
 			color = "default"
 		case 1:

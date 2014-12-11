@@ -9,7 +9,7 @@ import (
 
 var db *leveldb.DB
 
-func GetContent(channel string) (list []*contentInfo, err error) {
+func GetContent(channel string) (list *[]contentInfo, err error) {
 	// 读取channel数据
 	v, err := db.Get([]byte(channel), nil)
 	if err != nil {
@@ -22,24 +22,7 @@ func GetContent(channel string) (list []*contentInfo, err error) {
 		return nil, err
 	}
 
-	// 根据channel数据里存储的列表找到单条message的key
-	for _, v := range chanInfo.MsgIDList {
-		// 读取单条message
-		msg, err := db.Get(append([]byte(channel+"_"), v...), nil)
-		if err != nil {
-			return nil, err
-		}
-		// 解码message
-		var conInfo contentInfo
-		err = decode(msg, &conInfo)
-		if err != nil {
-			return nil, err
-		}
-
-		conInfo.ID = string(v)
-		list = append(list, &conInfo)
-	}
-	return list, nil
+	return &chanInfo.MsgList, nil
 }
 
 func encode(data interface{}) ([]byte, error) {
@@ -64,7 +47,7 @@ type contentInfo struct {
 	Content string
 }
 type channelInfo struct {
-	Name      string
-	Password  string
-	MsgIDList []string
+	Name     string
+	Password string
+	MsgList  []contentInfo
 }

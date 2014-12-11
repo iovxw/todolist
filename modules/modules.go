@@ -32,9 +32,9 @@ func Initialize() error {
 
 		// 初始化广场频道
 		chanInfo := &channelInfo{
-			Name:      "piazza",
-			Password:  "",
-			MsgIDList: []string{},
+			Name:     "piazza",
+			Password: "",
+			MsgList:  []contentInfo{},
 		}
 		buf, err := encode(chanInfo)
 		if err != nil {

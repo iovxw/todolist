@@ -16,12 +16,12 @@ func Content(channel string, _buffer *bytes.Buffer) {
 		</div>
 		return
 	}
-	for _, info := range contents {
-		<div id="{{info.ID}}" class="col-xs-12 col-sm-6 col-md-4">
+	for _, msg := range *contents {
+		<div id="{{msg.ID}}" class="col-xs-12 col-sm-6 col-md-4">
 			<div class="content">
-				<div class="panel-body">{{info.Content}}</div>
+				<div class="panel-body">{{msg.Content}}</div>
 				var color string
-				switch info.Color {
+				switch msg.Color {
 				case 0:
 					color = "default"
 				case 1:

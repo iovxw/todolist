@@ -39,15 +39,18 @@ func newMessage(message *Message) error {
 	}
 
 	// 检查是否为空信息
-	// 去掉所有换行符
 	if strings.Replace(msg["content"].(string), "<{#}>", "", -1) == "" {
 		return nilContentERR
 	}
 
-	// 生成id
-	id := newID()
-	// 将当前信息id添加到channel的列表里
-	chanInfo.MsgIDList = append([]string{id}, chanInfo.MsgIDList...)
+	// 编码msg数据
+	var conInfo = &contentInfo{
+		ID:      newID(),
+		Color:   color,
+		Content: toMarkdown(escape(msg["content"].(string))),
+	}
+	// 将当前信息添加到channel的列表里
+	chanInfo.MsgList = append([]contentInfo{*conInfo}, chanInfo.MsgList...)
 
 	// 编码channel数据
 	buf, err := encode(&chanInfo)
@@ -60,23 +63,7 @@ func newMessage(message *Message) error {
 		return err
 	}
 
-	// 编码msg数据
-	var conInfo = &contentInfo{
-		Color:   color,
-		Content: toMarkdown(escape(msg["content"].(string))),
-	}
-	buf, err = encode(conInfo)
-	if err != nil {
-		return err
-	}
-	// 保存信息
-	err = db.Put([]byte(msg["channel"].(string)+"_"+id), buf, nil)
-	if err != nil {
-		return err
-	}
-
 	// 将新信息推送到全部客户端
-	conInfo.ID = id
 	pushMessageToClient(&Message{
 		Type: "newMsg",
 		Data: *conInfo,
@@ -102,10 +89,10 @@ func removeMessage(message *Message) error {
 		return err
 	}
 
-	// 根据channel数据里存储的列表找到单条message的key
-	for k, v := range chanInfo.MsgIDList {
-		if v == id {
-			chanInfo.MsgIDList = append(chanInfo.MsgIDList[:k], chanInfo.MsgIDList[k+1:]...)
+	// 删除
+	for k, v := range chanInfo.MsgList {
+		if v.ID == id {
+			chanInfo.MsgList = append(chanInfo.MsgList[:k], chanInfo.MsgList[k+1:]...)
 		}
 	}
 
@@ -117,7 +104,7 @@ func removeMessage(message *Message) error {
 	if err != nil {
 		return err
 	}
-	fmt.Println(chanInfo.MsgIDList)
+	fmt.Println(chanInfo.MsgList)
 
 	err = db.Delete([]byte(channel+"_"+id), nil)
 	if err != nil {
