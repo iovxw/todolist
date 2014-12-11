@@ -3,7 +3,7 @@ package tpl
 import (
 	"bytes"
 
-	"todolist/tpl/base"
+	"github.com/Bluek404/todolist/tpl/base"
 )
 
 func Index() string {

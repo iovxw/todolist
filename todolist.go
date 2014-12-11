@@ -4,8 +4,8 @@ import (
 	"log"
 	"net/http"
 
-	"todolist/modules"
-	"todolist/tpl"
+	"github.com/Bluek404/todolist/modules"
+	"github.com/Bluek404/todolist/tpl"
 
 	sockets "github.com/beatrichartz/martini-sockets"
 	"github.com/go-martini/martini"
