@@ -6,10 +6,9 @@ TodoList
 Quick Start
 -----------
 
- 1. `git clone`到本地`$GOPATH/src`
- 2. `go build`编译
- 3. 编辑`config.yaml`
- 4. 运行
+ 1. `go get github.com/Bluek404/todolist` 或者直接从*releases*下载
+ 2. 编辑`config.yaml`
+ 3. 运行
 
 完成度
 ------
