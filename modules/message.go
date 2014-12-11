@@ -77,7 +77,10 @@ func newMessage(message *Message) error {
 
 	// 将新信息推送到全部客户端
 	conInfo.ID = id
-	pushMessageToClient(conInfo)
+	pushMessageToClient(&Message{
+		Type: "newMsg",
+		Data: *conInfo,
+	})
 
 	return nil
 }
@@ -121,6 +124,11 @@ func removeMessage(message *Message) error {
 		return err
 	}
 
+	pushMessageToClient(&Message{
+		Type: "deleteMsg",
+		Data: id,
+	})
+
 	return nil
 }
 
@@ -151,12 +159,9 @@ func toMarkdown(s string) string {
 	return s
 }
 
-func pushMessageToClient(info *contentInfo) {
+func pushMessageToClient(msg *Message) {
 	for _, sender := range wsClientList {
-		sender <- &Message{
-			Type: "newMsg",
-			Data: *info,
-		}
+		sender <- msg
 	}
 }
 
