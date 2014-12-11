@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"log"
 
-	"github.com/Bluek404/todolist/modules"
+	"todolist/modules"
 )
 
 func Content(channel string, _buffer *bytes.Buffer) {
