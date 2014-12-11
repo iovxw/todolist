@@ -49,6 +49,6 @@ func Content(channel string, _buffer *bytes.Buffer) {
 		}
 		_buffer.WriteString("<div class=\"panel-footer ")
 		_buffer.WriteString(color)
-		_buffer.WriteString("\"><i class=\"fa fa-clock-o\"></i><a>time</a><div class=\"btn-group\"><a data-toggle=\"dropdown\"><i class=\"fa fa-ellipsis-v\"></i></a><ul class=\"dropdown-menu\"><li><a><i class=\"fa fa-check\"></i> 标记为已完成</a></li><li class=\"divider\"></li><li><a><i class=\"fa fa-times\"></i> 删除</a></li></ul></div></div></div></div>")
+		_buffer.WriteString("\"><i class=\"fa fa-clock-o\"></i><a>time</a><div class=\"btn-group\"><a data-toggle=\"dropdown\"><i class=\"fa fa-ellipsis-v\"></i></a><ul class=\"dropdown-menu\"><li><a><i class=\"fa fa-check\"></i> 标记为已完成</a></li><li><a data-toggle=\"modal\" href=\"#editor\"><i class=\"fa fa-pencil\"></i> 编辑</a></li><li class=\"divider\"></li><li><a><i class=\"fa fa-times\"></i> 删除</a></li></ul></div></div></div></div>")
 	}
 }

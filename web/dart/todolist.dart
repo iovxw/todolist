@@ -14,31 +14,27 @@ void main() {
 
   initWebSocket();
 
-  querySelector("#submit").onClick.listen((MouseEvent e) {
-    print("Send mesaage");
-    var editor = querySelector("#editor div div div .editor");
-    // 将br转变为换行标记
-    editor.querySelectorAll("br").forEach((Element e) {
-      e.text = "<{#}>";
-    });
-    // 获取选中的颜色的id
-    var color = querySelector(".colors .fa.fa-check").id;
-    var message = JSON.encode({
-      'Type': 'new',
-      'Data': {
-        'channel': 'piazza',
-        'content': editor.text,
-        'color': color,
-      }
-    });
-    print(editor.text);
-    socket.send(message);
-    editor.text = "";
-    querySelector("button.close").click();
-  });
+  querySelector("#submit").onClick.listen(submit);
 
   querySelectorAll(".dropdown-menu li a .fa-times").forEach((Element toolBar) {
     removeBtnClicked(toolBar.parent);
+  });
+
+  querySelectorAll(".dropdown-menu li a .fa-pencil").forEach((Element e) {
+    e.parent.onClick.listen((MouseEvent e) {
+      var editor = querySelector("#editor");
+      var title = editor.querySelector(".modal-title");
+      var modificationClasses = editor.querySelector("#modification").classes;
+      var submitClasses = editor.querySelector("#submit").classes;
+      title.text = "编辑";
+      modificationClasses.remove("hide");
+      submitClasses.add("hide");
+      querySelector("#add").onClick.listen((MouseEvent e) {
+        title.text = "添加新事项";
+        modificationClasses.add("hide");
+        submitClasses.remove("hide");
+      });
+    });
   });
 
   var colorBoxes = querySelectorAll(".colors .color-box");
@@ -48,19 +44,17 @@ void main() {
   for (Element colorBox in colorBoxes) {
     colorBox.onClick.listen((MouseEvent e) {
       var id = colorBox.id;
-      var str = colorBox.getAttribute("class");
       // 检查是否已经被选中
-      if (str.indexOf(selected) == -1) {
+      if (!colorBox.classes.contains(selected)) {
         // 选中
-        colorBox.setAttribute("class", str + selected);
+        colorBox.classes.add(selected);
 
         // 取消选中其他选框
         for (Element colorBox in colorBoxes) {
           // 跳过被选中的colorBox
           if (colorBox.id != id) {
             // 取消选中
-            str = colorBox.getAttribute("class").replaceAll(selected, "");
-            colorBox.setAttribute("class", str);
+            colorBox.classes.remove(selected);
           }
         }
       }
@@ -111,6 +105,29 @@ void initWebSocket([int retrySeconds = 2]) {
         break;
     }
   });
+}
+
+void submit(MouseEvent e) {
+  print("Send mesaage");
+  var editor = querySelector("#editor div div div .editor");
+  // 将br转变为换行标记
+  editor.querySelectorAll("br").forEach((Element e) {
+    e.text = "<{#}>";
+  });
+  // 获取选中的颜色的id
+  var color = querySelector(".colors .fa.fa-check").id;
+  var message = JSON.encode({
+    'Type': 'new',
+    'Data': {
+      'channel': 'piazza',
+      'content': editor.text,
+      'color': color,
+    }
+  });
+  print(editor.text);
+  socket.send(message);
+  editor.text = "";
+  querySelector("button.close").click();
 }
 
 void newMsg(Map msg) {
@@ -174,7 +191,7 @@ void newMsg(Map msg) {
         </div>
       </div>
     </div>
-    ''');
+  ''');
 
   removeBtnClicked(content.querySelector(".dropdown-menu li a .fa-times").parent);
 
