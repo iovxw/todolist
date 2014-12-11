@@ -2,9 +2,9 @@ package modules
 
 import (
 	"log"
+	"os"
 
 	"github.com/syndtr/goleveldb/leveldb"
-	"os"
 )
 
 var wsClientList = make(map[string]chan<- *Message)

@@ -2,10 +2,10 @@ package modules
 
 import (
 	"errors"
+	"fmt"
 	"strconv"
 	"strings"
 
-	"fmt"
 	"github.com/russross/blackfriday"
 )
 

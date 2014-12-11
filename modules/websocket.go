@@ -44,10 +44,6 @@ func WSMain(receiver <-chan *Message, sender chan<- *Message, done <-chan bool, 
 			default:
 				log.Println("[WSMain]ERROR: unknown type", msg.Type)
 			}
-		//case <-ticker:
-		// This will close the connection after 30 minutes no matter what
-		// To demonstrate use of the disconnect channel
-		// You can use close codes according to RFC 6455
 		//disconnect <- websocket.CloseNormalClosure
 		case <-done:
 			// 从客户端列表中删除
