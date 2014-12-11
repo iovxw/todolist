@@ -3,6 +3,14 @@ TodoList
 
 一个网页的代办事项列表
 
+Quick Start
+-----------
+
+ 1. `git clone`到本地`$GOPATH/src`
+ 2. `go build`编译
+ 3. 编辑`config.yaml`
+ 4. 运行
+
 完成度
 ------
 
