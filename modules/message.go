@@ -33,7 +33,7 @@ func newMessage(message *Message) error {
 	}
 
 	// 检查收到的颜色编号是否合法
-	if color > colors {
+	if color < 0 || color > colors {
 		// 超出许可范围，设置为默认值
 		color = 0
 	}
